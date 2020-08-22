@@ -1,0 +1,17 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: cloud-server
+
+eureka:
+  instance:
+    hostname: eureka2
+  client:
+    # 不注册自己，eureka默认会向注册中心自动注册为客户端
+    fetch-registry: true
+    register-with-eureka: true
+    # 服务路径（注册中心路径）：让其他服务进行注册
+    service-url:
+      defaultZone: http://eureka1:8001/eureka

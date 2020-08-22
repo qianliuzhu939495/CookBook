@@ -1,0 +1,14 @@
+server:
+  port: 8021
+
+spring:
+  application:
+    name: cloud-porductb
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 服务路径（注册中心路径）：在注册中心进行服务注册
+    service-url:
+      defaultZone: http://eureka1:8001/eureka,http://eureka2:8002/eureka

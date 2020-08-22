@@ -1,0 +1,22 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: cloud-zull
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 服务路径（注册中心路径）：在注册中心进行服务注册
+    service-url:
+      defaultZone: http://eureka1:8001/eureka,http://eureka2:8002/eureka
+zuul:
+  routes:
+    porducta:
+      path: /pta/**
+      serviceId: cloud-porducta
+    porductb:
+      path: /ptb/**
+      serviceId: cloud-porductb

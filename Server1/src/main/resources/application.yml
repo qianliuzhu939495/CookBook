@@ -1,0 +1,19 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: cloud-server
+eureka:
+  instance:
+    # 不能写ip地址，不能写localhost
+    hostname: eureka1
+  client:
+    # 不注册自己，eureka默认会向注册中心自动注册为客户端
+    # 使用分片得备用服务 单机为false 集群true
+    fetch-registry: true
+    # 单机为false（不向自己注册自己） 集群true（向对方注册自己）
+    register-with-eureka: true
+    # 服务路径（注册中心路径）：让其他服务进行注册
+    service-url:
+      # 单机写自己得服务路径 集群写对方得服务中心路径
+      defaultZone: http://eureka2:8002/eureka
